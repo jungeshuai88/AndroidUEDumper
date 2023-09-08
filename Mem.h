@@ -22,7 +22,7 @@
 using namespace std;
 
 typedef uintptr_t kaddr;
-
+extern int debug;
 extern int pidA;/*
 uint64_t AddrGNames,AddrGObject;*/
 

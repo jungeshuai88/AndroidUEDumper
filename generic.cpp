@@ -15,6 +15,7 @@ TUObjectArray* ObjObjects = NULL;
 
 string FNamePool::GetName(uint32_t index)
 {
+
     unsigned int Block = index >> 16;
     unsigned short int Offset = index & 65535;
 

@@ -23,8 +23,8 @@ string UE_UObject::GetName()
 
 string UE_UObject::GetCppName()
 {
-	string Name = GetName();
 
+	string Name = GetName();
 	if (Name == "" || Name == "None")
 		return string();
 
@@ -145,7 +145,6 @@ string UE_FField::GetType()
 {
 	uint32_t NameId = Read<uint32_t>(Read<uint32_t*>(this + Offsets.FField.Class));
 	string Name = NamePoolData->GetName(NameId);
-	
 	if (Name == "NameProperty")			{ return "FName"; };
 	if (Name == "StrProperty")			{ return "FString"; };
 	if (Name == "TextProperty")			{ return "FText"; }
@@ -304,6 +303,7 @@ void UE_UClass::Generate()
 	sprintf(buf, "Class Size::0x%.4X\n", GetPropertiesSize());
 
 	string FullName = "// " + GetFullName() + "\n";
+
 	string ClassSize = "// ";
 	ClassSize += buf;
 	string ClassName = "class " + GetCppName();
@@ -320,6 +320,11 @@ void UE_UClass::Generate()
 	string Body;
 	for (UE_FField* temp = GetChildProperties(); temp; temp = temp->GetNext())
 	{
+        if (temp->GetName()=="PersistentLevel"){
+            debug=1;
+        } else{
+            debug=0;
+        }
 		string Name = "    " + temp->GetType();
 		if (Name.size() < 50)
 		{

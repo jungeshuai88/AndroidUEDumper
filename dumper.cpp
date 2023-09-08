@@ -14,7 +14,6 @@ void Dumper::Init(uint64_t Base,uint64_t GName, uint64_t GObject)
     AddrGNames = GName;
     AddrGObject = GObject;
 
-    cout << NamePoolData->GetName(325177) << endl;
 	if(NamePoolData->GetName(0) != "None")
 		throw "GetName有误\nGetName(0)不为None";
 

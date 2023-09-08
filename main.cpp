@@ -1,7 +1,7 @@
 #include "Base.h"
 #include "dumper.h"
 
-
+int debug = 0;
 int main()
 {
 
@@ -9,8 +9,7 @@ int main()
 	uint64_t Base = 0x7ff67D310000;
     pidA = find_pid("com.proximabeta.mf.uamo");
     Base = get_module_base("libUE4.so");
-    printf("%lx\n",Base);
-    cout << pidA << endl;
+
 	try
 	{
 		Dump.Init(Base, Base + 0xDDE1980, Base + 0xde00a20 + 0x10);
