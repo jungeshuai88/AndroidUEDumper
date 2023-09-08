@@ -6,7 +6,7 @@ int main()
 {
 
 	Dumper& Dump = Dumper::GetInstance();
-	uint64_t Base = 0x7ff67D310000;
+	uint64_t Base = 0;
     pidA = find_pid("com.proximabeta.mf.uamo");
     Base = get_module_base("libUE4.so");
 

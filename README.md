@@ -1,1 +1,2 @@
 # AndroidUEDumper
+这个项目是从PC的一个项目移植到Android的
